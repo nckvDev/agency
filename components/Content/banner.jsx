@@ -3,14 +3,12 @@ import React from 'react'
 
 const Banner = () => {
    return (
-      <div className='w-full'>
-         <Image
-            src='/images/background.png'
-            width={0}
-            height={0}
-            sizes='100vw'
-            style={{ width: '100%', height: 'auto' }}
+      <div className='relative w-full h-screen'>
+         {/* <div className='absolute top-0 left-0 w-full h-screen bg-black/40 -z-10 '></div> */}
+         <img
+            src='/images/bg-1.png'
             alt='cover image'
+            className='absolute top-0 left-0 object-cover w-full h-screen overflow-auto -z-20'
          />
       </div>
    )
