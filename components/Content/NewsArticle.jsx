@@ -90,8 +90,8 @@ const NewsArticle = () => {
                                  src={blog.img}
                                  alt={blog.title}
                                  fill
-                                 objectFit='cover'
-                                 className='rounded'
+                                 sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+                                 className='object-cover rounded'
                               />
                            </div>
                         </CardHeader>

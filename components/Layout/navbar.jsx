@@ -26,7 +26,13 @@ const Navbar = () => {
             <nav className='flex items-center justify-between mx-auto max-w-7xl'>
                <Link href='/'>
                   <div className='relative w-40 h-12'>
-                     <Image src='/images/idev-logo.png' fill objectFit='contain' alt='logo idev' />
+                     <Image
+                        src='/images/idev-logo.png'
+                        fill
+                        alt='logo idev'
+                        sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+                        className='object-contain'
+                     />
                   </div>
                </Link>
                <ul className='flex gap-6 text max-md:hidden'>

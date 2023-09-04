@@ -78,7 +78,13 @@ const Option = () => {
                      </CardHeader>
                      <CardContent>
                         <div className='relative w-full h-56'>
-                           <Image src={list.icons} alt='icon' fill objectFit='cover' />
+                           <Image
+                              src={list.icons}
+                              alt='icon'
+                              fill
+                              className='object-cover'
+                              sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+                           />
                         </div>
 
                         {list.details.map((detail, index) => (

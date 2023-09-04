@@ -1,10 +1,30 @@
 import { Facebook, Instagram, Twitter, Youtube } from 'lucide-react'
+import Image from 'next/image'
 
 const Footer = () => {
+   const socialLinks = [
+      {
+         link: 'https://www.facebook.com/idevflow',
+         img: '/images/icons/facebook.png',
+      },
+      {
+         link: 'https://line.me/R/ti/p/@823snnnf',
+         img: '/images/icons/line.png',
+      },
+      {
+         link: 'https://www.tiktok.com/@idev66',
+         img: '/images/icons/tik-tok.png',
+      },
+      {
+         link: 'https://www.youtube.com/@idevflow',
+         img: '/images/icons/youtube.png',
+      },
+   ]
+
    return (
-      <footer className='mt-16 bg-white  dark:bg-gray-900'>
+      <footer className='mt-16 bg-white dark:bg-gray-900'>
          <div className='w-full'>
-            <div className='grid max-w-screen-xl grid-cols-2 gap-8 px-4 py-6 mx-auto lg:py-8 md:grid-cols-4 md:px-6 lg:px-8'>
+            <div className='grid max-w-screen-xl grid-cols-1 gap-4 px-4 py-6 mx-auto sm:gap-8 sm:grid-cols-2 lg:py-8 md:grid-cols-4 md:px-6 lg:px-8'>
                <div className=''>
                   <h2 className='mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white'>
                      location
@@ -45,7 +65,20 @@ const Footer = () => {
                         ผ่านช่องทาง
                      </p>
                   </div>
-                  <div className='flex gap-4'>
+                  <div className='flex gap-4 mt-6'>
+                     {socialLinks.map((social, index) => (
+                        <a key={index} href={social.link} target='_blank'>
+                           <Image
+                              src={social.img}
+                              alt='logo image'
+                              width={24}
+                              height={24}
+                              className='transition grayscale hover:grayscale-0'
+                           />
+                        </a>
+                     ))}
+                  </div>
+                  {/* <div className='flex gap-4'>
                      <a
                         href='#'
                         className='text-gray-400 hover:text-gray-900 dark:hover:text-white'
@@ -70,7 +103,7 @@ const Footer = () => {
                      >
                         <Youtube />
                      </a>
-                  </div>
+                  </div> */}
                </div>
                <div>
                   <h2 className='mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white'>

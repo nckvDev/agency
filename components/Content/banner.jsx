@@ -6,7 +6,7 @@ const Banner = () => {
       <div className='relative w-full h-screen'>
          {/* <div className='absolute top-0 left-0 w-full h-screen bg-black/40 -z-10 '></div> */}
          <img
-            src='/images/bg-1.png'
+            src='/images/bg-2.png'
             alt='cover image'
             className='absolute top-0 left-0 object-cover w-full h-screen overflow-auto -z-20'
          />
