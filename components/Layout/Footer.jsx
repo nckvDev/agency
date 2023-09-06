@@ -73,7 +73,7 @@ const Footer = () => {
                               alt='logo image'
                               width={24}
                               height={24}
-                              className='transition grayscale hover:grayscale-0'
+                              // className='transition grayscale hover:grayscale-0'
                            />
                         </a>
                      ))}

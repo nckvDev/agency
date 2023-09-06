@@ -9,6 +9,7 @@ import {
 } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { ArrowUpRight } from 'lucide-react'
+import Link from 'next/link'
 const Blog = () => {
    const blogLists = [
       {
@@ -79,7 +80,9 @@ const Blog = () => {
                      </div>
                   </CardHeader>
                   <CardContent className='grow'>
-                     <CardTitle>{blog.title}</CardTitle>
+                     <Link href={`blog/${index}`}>
+                        <CardTitle className='tracking-normal'>{blog.title}</CardTitle>
+                     </Link>
                      {/* <CardDescription className='mt-2'>{blog.date}</CardDescription> */}
                   </CardContent>
                </Card>
