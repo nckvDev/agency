@@ -1,9 +1,22 @@
-import React from 'react'
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '../ui/accordion'
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '../ui/card'
+import Link from 'next/link'
 import Image from 'next/image'
+import { ArrowUpRight } from 'lucide-react'
+import {
+   Accordion,
+   AccordionItem,
+   AccordionTrigger,
+   AccordionContent,
+} from '@/components/ui/accordion'
+import {
+   Card,
+   CardHeader,
+   CardTitle,
+   CardDescription,
+   CardContent,
+   CardFooter,
+} from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { ArrowUpRight, ChevronsRight } from 'lucide-react'
+import { blogLists } from '@/app/blog/data'
 
 const NewsArticle = () => {
    const articleList = [
@@ -35,28 +48,7 @@ const NewsArticle = () => {
          ],
       },
    ]
-   const blogLists = [
-      {
-         title: 'เข้าร่วมงาน Hotels Meet Local Agents Event',
-         img: '/images/bg-card.png',
-         date: '7 กันยายน 2022',
-      },
-      {
-         title: 'แผนการตลาด 2023 กับการเผชิญหน้ากับเศรษฐกิจ และสถานการณ์ต่าง ๆ ในยุคหลังโควิด',
-         img: '/images/bg-card.png',
-         date: '31 สิงหาคม 2022',
-      },
-      {
-         title: 'แบรนด์ที่มาแทน STARBUCKS ในรัสเซีย',
-         img: '/images/bg-card.png',
-         date: '7 กันยายน 2022',
-      },
-      {
-         title: 'การตลาดที่ SME อย่าหาทำ',
-         img: '/images/bg-card.png',
-         date: '7 กันยายน 2022',
-      },
-   ]
+
    return (
       <div className='mx-auto max-w-7xl pt-14'>
          <div className='px-4 md:px-6 lg:px-8'>
@@ -96,13 +88,17 @@ const NewsArticle = () => {
                            </div>
                         </CardHeader>
                         <CardContent className='grow'>
-                           <CardTitle>{blog.title}</CardTitle>
+                           <Link href={`blog/${blog.id}`}>
+                              <CardTitle>{blog.title}</CardTitle>
+                           </Link>
                            <CardDescription className='mt-2'>{blog.date}</CardDescription>
                         </CardContent>
                         <CardFooter>
-                           <Button>
-                              อ่านเพิ่มเติม <ArrowUpRight className='w-4 h-4 ml-1.5' />
-                           </Button>
+                           <Link href={`blog/${blog.id}`}>
+                              <Button>
+                                 อ่านเพิ่มเติม <ArrowUpRight className='w-4 h-4 ml-1.5' />
+                              </Button>
+                           </Link>
                         </CardFooter>
                      </Card>
                   ))}

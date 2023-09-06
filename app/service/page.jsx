@@ -1,17 +1,15 @@
 import InfiniteSlider from '@/components/Animation/InfiniteSlider'
 import { Present } from '@/components/Content'
 import { Button } from '@/components/ui/button'
-import {
-   Card,
-   CardHeader,
-   CardTitle,
-   CardDescription,
-   CardContent,
-   CardFooter,
-} from '@/components/ui/card'
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { Check, MessageCircle, MessagesSquare, PenSquare, PhoneCall, Star } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
+
+export const metadata = {
+   title: 'IDEVFLOW : DIGITAL BUSINESS SOLUTION',
+   description: 'การตลาดออนไลน์ทางเลือกใหม่ ตอบโจทย์ทุกธุรกิจ',
+}
 
 const Service = () => {
    const socialLinks = [
