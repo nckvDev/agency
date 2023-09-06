@@ -2,6 +2,7 @@ import Navbar from '@/components/Layout/Navbar'
 import './globals.css'
 import { Inter, Prompt } from 'next/font/google'
 import Footer from '@/components/Layout/Footer'
+import { Toaster } from '@/components/ui/toaster'
 
 const inter = Inter({ subsets: ['latin'] })
 const prompt = Prompt({
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
             <Navbar />
             {children}
             <Footer />
+            <Toaster />
          </body>
       </html>
    )
