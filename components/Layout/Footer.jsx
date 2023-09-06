@@ -1,7 +1,12 @@
-import { Facebook, Instagram, Twitter, Youtube } from 'lucide-react'
+'use client'
+
 import Image from 'next/image'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 const Footer = () => {
+   const pathname = usePathname()
+
    const socialLinks = [
       {
          link: 'https://www.facebook.com/idevflow',
@@ -21,11 +26,26 @@ const Footer = () => {
       },
    ]
 
+   const linkLists = [
+      {
+         name: 'Blog',
+         link: '/blog',
+      },
+      {
+         name: 'About us',
+         link: '/about',
+      },
+      {
+         name: 'Contact us',
+         link: '/contact',
+      },
+   ]
+
    return (
       <footer className='mt-16 bg-white dark:bg-gray-900'>
          <div className='w-full'>
             <div className='grid max-w-screen-xl grid-cols-1 gap-4 px-4 py-6 mx-auto sm:gap-8 sm:grid-cols-2 lg:py-8 md:grid-cols-4 md:px-6 lg:px-8'>
-               <div className=''>
+               <div>
                   <h2 className='mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white'>
                      location
                   </h2>
@@ -78,47 +98,29 @@ const Footer = () => {
                         </a>
                      ))}
                   </div>
-                  {/* <div className='flex gap-4'>
-                     <a
-                        href='#'
-                        className='text-gray-400 hover:text-gray-900 dark:hover:text-white'
-                     >
-                        <Facebook />
-                     </a>
-                     <a
-                        href='#'
-                        className='text-gray-400 hover:text-gray-900 dark:hover:text-white'
-                     >
-                        <Instagram />
-                     </a>
-                     <a
-                        href='#'
-                        className='text-gray-400 hover:text-gray-900 dark:hover:text-white'
-                     >
-                        <Twitter />
-                     </a>
-                     <a
-                        href='#'
-                        className='text-gray-400 hover:text-gray-900 dark:hover:text-white'
-                     >
-                        <Youtube />
-                     </a>
-                  </div> */}
                </div>
                <div>
                   <h2 className='mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white'>
                      Menu link
                   </h2>
                   <ul className='font-medium text-gray-500 dark:text-gray-400'>
-                     <li className='mb-4 border-b border-slate-400 hover:bg-slate-50'>
-                        <a href='#'>Blog</a>
-                     </li>
-                     <li className='mb-4 border-b border-slate-400 hover:bg-slate-50'>
+                     {linkLists.map((list, index) => {
+                        const isActive = pathname === list.link ? 'bg-slate-100' : ''
+                        return (
+                           <li
+                              key={index}
+                              className={`mb-4 transition-all border-b border-slate-400 hover:bg-slate-50 ${isActive}`}
+                           >
+                              <Link href={list.link}>{list.name}</Link>
+                           </li>
+                        )
+                     })}
+                     {/* <li className='mb-4 border-b border-slate-400 hover:bg-slate-50'>
                         <a href='#'>About us</a>
                      </li>
                      <li className='mb-4 border-b border-slate-400 hover:bg-slate-50'>
                         <a href='#'>Contact us</a>
-                     </li>
+                     </li> */}
                   </ul>
                </div>
             </div>

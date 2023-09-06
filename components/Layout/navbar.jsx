@@ -7,6 +7,7 @@ import {
    NavigationMenu,
    NavigationMenuItem,
    NavigationMenuLink,
+   NavigationMenuList,
    navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu'
 import { HamburgerMenuIcon } from '@radix-ui/react-icons'
@@ -15,17 +16,23 @@ import {
    Sheet,
    SheetContent,
    SheetDescription,
+   SheetFooter,
    SheetHeader,
    SheetTitle,
    SheetTrigger,
 } from '@/components/ui/sheet'
+import { usePathname, useRouter } from 'next/navigation'
 
 const Navbar = () => {
    const [scrolled, setScrolled] = useState(false)
+   const router = useRouter
+   const pathname = usePathname()
 
    useEffect(() => {
       window.addEventListener('scroll', handleScroll)
    }, [])
+
+   console.log('pathname', pathname)
 
    const handleScroll = () => {
       setScrolled(window.scrollY > 100)
@@ -59,21 +66,25 @@ const Navbar = () => {
                      />
                   </div>
                </Link>
-               <ul className='flex gap-6 text max-md:hidden'>
-                  <NavigationMenu className='gap-4 '>
-                     {menus.map((menu) => (
-                        <NavigationMenuItem key={menu.name} className='text-base'>
-                           <Link href={menu.link} legacyBehavior passHref>
-                              <NavigationMenuLink
-                                 className={`${navigationMenuTriggerStyle()} text-base`}
-                              >
-                                 {menu.name}
-                              </NavigationMenuLink>
-                           </Link>
-                        </NavigationMenuItem>
-                     ))}
-                  </NavigationMenu>
-               </ul>
+
+               <NavigationMenu className='max-md:hidden max-w-max'>
+                  <NavigationMenuList className='gap-6'>
+                     {menus.map((menu) => {
+                        const isActive = pathname === menu.link ? 'active' : ''
+                        return (
+                           <NavigationMenuItem key={menu.name}>
+                              <Link href={menu.link} legacyBehavior passHref>
+                                 <NavigationMenuLink
+                                    className={`text-base transition-none ${isActive}`}
+                                 >
+                                    {menu.name}
+                                 </NavigationMenuLink>
+                              </Link>
+                           </NavigationMenuItem>
+                        )
+                     })}
+                  </NavigationMenuList>
+               </NavigationMenu>
 
                <Sheet>
                   <SheetTrigger asChild>
@@ -81,14 +92,35 @@ const Navbar = () => {
                         <HamburgerMenuIcon className='w-4 h-4' />
                      </Button>
                   </SheetTrigger>
-                  <SheetContent className='w-96'>
-                     <SheetHeader>
+                  <SheetContent className='w-full xs:w-96'>
+                     {/* <SheetHeader>
                         <SheetTitle>Are you sure absolutely sure?</SheetTitle>
                         <SheetDescription>
                            This action cannot be undone. This will permanently delete your account
                            and remove your data from our servers.
                         </SheetDescription>
-                     </SheetHeader>
+                     </SheetHeader> */}
+
+                     <div>
+                        <NavigationMenu className='w-full mt-4'>
+                           <NavigationMenuList className='flex-col w-full gap-4'>
+                              {menus.map((menu) => {
+                                 const isActive = pathname === menu.link ? 'active' : ''
+                                 return (
+                                    <NavigationMenuItem key={menu.name} className='w-full'>
+                                       <Link href={menu.link} legacyBehavior passHref>
+                                          <NavigationMenuLink
+                                             className={`text-xl w-full block text-center ${isActive}`}
+                                          >
+                                             {menu.name}
+                                          </NavigationMenuLink>
+                                       </Link>
+                                    </NavigationMenuItem>
+                                 )
+                              })}
+                           </NavigationMenuList>
+                        </NavigationMenu>
+                     </div>
                   </SheetContent>
                </Sheet>
             </nav>
