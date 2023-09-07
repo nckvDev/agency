@@ -4,6 +4,7 @@ import { Toaster } from '@/components/ui/toaster'
 import Navbar from '@/components/Layout/navbar'
 import Footer from '@/components/Layout/Footer'
 import './globals.css'
+import Script from 'next/script'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const prompt = Prompt({
@@ -26,6 +27,7 @@ export default function RootLayout({ children }) {
             <Footer />
             <Toaster />
          </body>
+         {/* <Script strategy="beforeInteractive"  /> */}
       </html>
    )
 }
