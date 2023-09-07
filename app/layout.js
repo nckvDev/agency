@@ -1,7 +1,7 @@
 import { Inter, Prompt } from 'next/font/google'
 import { Toaster } from '@/components/ui/toaster'
 
-import Navbar from '@/components/Layout/Navbar'
+import Navbar from '@/components/Layout/navbar'
 import Footer from '@/components/Layout/Footer'
 import './globals.css'
 
