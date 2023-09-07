@@ -1,7 +1,6 @@
 import Image from 'next/image'
-import React from 'react'
 
-const Present = ({ children, rtl, video, image }) => {
+const Present = ({ children, rtl, image }) => {
    const styleRTL = rtl ? 'col-start-1 row-start-1' : null
    const styleLTR = rtl ? 'col-span-2 md:col-span-2 lg:ml-28' : 'col-span-2 md:col-span-2'
    return (

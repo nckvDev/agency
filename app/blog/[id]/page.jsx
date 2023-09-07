@@ -1,6 +1,5 @@
-import React from 'react'
-import { blogLists } from '../data'
 import Image from 'next/image'
+import { blogLists } from '../data'
 
 export async function generateMetadata({ params }) {
    const detail = blogLists.filter((blog) => blog.id === params.id)
@@ -25,7 +24,7 @@ export default function BlogDetail({ params }) {
             />
          </div>
          <p className='my-2 text-sm text-muted-foreground'>{detail[0].date}</p>
-         <p>{detail[0].detail}</p>
+         <p className='my-6'>{detail[0].detail}</p>
       </div>
    )
 }

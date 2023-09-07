@@ -1,8 +1,5 @@
-import React from 'react'
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '../ui/card'
 import Image from 'next/image'
-import { BookOpenCheck, DatabaseZap, Store, Tv } from 'lucide-react'
-// import planingIcon from '/images/agency-option-icon1.png'
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 
 const Option = () => {
    const lists = [

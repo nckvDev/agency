@@ -1,38 +1,26 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
+import Image from 'next/image'
+import { usePathname } from 'next/navigation'
+import { useEffect, useState } from 'react'
 import {
    NavigationMenu,
    NavigationMenuItem,
    NavigationMenuLink,
    NavigationMenuList,
-   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu'
-import { HamburgerMenuIcon } from '@radix-ui/react-icons'
 import { Button } from '@/components/ui/button'
-import {
-   Sheet,
-   SheetContent,
-   SheetDescription,
-   SheetFooter,
-   SheetHeader,
-   SheetTitle,
-   SheetTrigger,
-} from '@/components/ui/sheet'
-import { usePathname, useRouter } from 'next/navigation'
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
+import { HamburgerMenuIcon } from '@radix-ui/react-icons'
 
-const Navbar = () => {
+export default function Navbar() {
    const [scrolled, setScrolled] = useState(false)
-   const router = useRouter
    const pathname = usePathname()
 
    useEffect(() => {
       window.addEventListener('scroll', handleScroll)
    }, [])
-
-   console.log('pathname', pathname)
 
    const handleScroll = () => {
       setScrolled(window.scrollY > 100)
@@ -128,5 +116,3 @@ const Navbar = () => {
       </header>
    )
 }
-
-export default Navbar

@@ -1,6 +1,5 @@
 import ContactForm from '@/components/Form/ContactForm'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
-import React from 'react'
 
 const Contact = () => {
    return (
