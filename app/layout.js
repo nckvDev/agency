@@ -5,6 +5,8 @@ import Navbar from '@/components/Layout/navbar'
 import Footer from '@/components/Layout/Footer'
 import './globals.css'
 import Script from 'next/script'
+import { Suspense } from 'react'
+import Analytics from '@/lib/analytic'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const prompt = Prompt({
@@ -26,6 +28,9 @@ export default function RootLayout({ children }) {
             {children}
             <Footer />
             <Toaster />
+            <Suspense>
+               <Analytics />
+            </Suspense>
          </body>
          {/* <Script strategy="beforeInteractive"  /> */}
       </html>
