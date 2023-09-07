@@ -1,4 +1,4 @@
-import Banner from './Banner'
+import Banner from './banner'
 import Option from './Option'
 import Present from './Present'
 import NewsArticle from './NewsArticle'

@@ -1,4 +1,3 @@
-import { NotionLogoIcon } from '@radix-ui/react-icons'
 import { Figma, Framer, Github, Instagram, Linkedin, Twitter } from 'lucide-react'
 
 const InfiniteSlider = () => {

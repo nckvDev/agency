@@ -1,13 +1,15 @@
-import Navbar from '@/components/Layout/Navbar'
-import './globals.css'
 import { Inter, Prompt } from 'next/font/google'
-import Footer from '@/components/Layout/Footer'
 import { Toaster } from '@/components/ui/toaster'
 
-const inter = Inter({ subsets: ['latin'] })
+import Navbar from '@/components/Layout/navbar'
+import Footer from '@/components/Layout/Footer'
+import './globals.css'
+
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const prompt = Prompt({
    subsets: ['latin'],
    weight: ['300', '400', '500', '600'],
+   variable: '--font-prompt',
 })
 
 export const metadata = {
