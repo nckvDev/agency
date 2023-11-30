@@ -1,12 +1,11 @@
+import { Suspense } from 'react'
 import { Inter, Prompt } from 'next/font/google'
 import { Toaster } from '@/components/ui/toaster'
 
 import Navbar from '@/components/Layout/navbar'
 import Footer from '@/components/Layout/Footer'
-import './globals.css'
-import Script from 'next/script'
-import { Suspense } from 'react'
 import Analytics from '@/lib/analytic'
+import './globals.css'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const prompt = Prompt({
